@@ -6,7 +6,7 @@
 
   <!-- Primary SEO -->
   <title>Spieron | Enterprise Big Data Professional Services</title>
-  <meta name="description" content="Spieron is a professional services firm specializing in enterprise big data — from strategy and architecture to full implementation and scale." />
+  <meta name="description" content="Spieron is a professional services firm specializing in enterprise big data - from strategy and architecture to full implementation and scale." />
   <meta name="keywords" content="big data, enterprise data, professional services, data architecture, data strategy, data engineering, data infrastructure" />
   <meta name="author" content="Spieron" />
   <meta name="robots" content="index, follow" />
@@ -16,16 +16,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.spieron.com/" />
   <meta property="og:title" content="Spieron | Enterprise Big Data Professional Services" />
-  <meta property="og:description" content="We partner with enterprises to plan, implement, and scale their data infrastructure — end to end." />
-  <meta property="og:image" content="https://www.spieron.com/assests/logo.png" />
+  <meta property="og:description" content="We partner with enterprises to plan, implement, and scale their data infrastructure end to end." />
+  <meta property="og:image" content="https://www.spieron.com/assests/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:site_name" content="Spieron" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Spieron | Enterprise Big Data Professional Services" />
-  <meta name="twitter:description" content="We partner with enterprises to plan, implement, and scale their data infrastructure — end to end." />
-  <meta name="twitter:image" content="https://www.spieron.com/assests/logo.png" />
+  <meta name="twitter:description" content="We partner with enterprises to plan, implement, and scale their data infrastructure end to end." />
+  <meta name="twitter:image" content="https://www.spieron.com/assests/og-image.jpg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -34,12 +37,15 @@
     "@type": "Organization",
     "name": "Spieron",
     "url": "https://www.spieron.com",
-    "logo": "https://www.spieron.com/assests/logo.png",
+    "logo": "https://www.spieron.com/assests/og-image.jpg",
     "description": "Professional services firm specializing in enterprise big data — strategy, architecture, implementation and scale.",
     "email": "office@spieron.com",
     "sameAs": ["https://github.com/spieron"]
   }
   </script>
+
+  <!-- Accessibility widget -->
+  <script src="https://cdn.enable.co.il/licenses/enable-L54979jjwb2xo98g-0426-81645/init.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -213,6 +219,29 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── Accessibility ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--blue);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 8px 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 9999;
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: 0; }
+
+    :focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
     /* ── Safety: very short screens get scroll ── */
     @media (max-height: 580px) {
       html, body { overflow: auto; height: auto; }
@@ -229,11 +258,13 @@
 </head>
 <body>
 
-  <canvas id="net"></canvas>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <main>
+  <canvas id="net" aria-hidden="true" role="presentation"></canvas>
 
-    <img class="logo" src="assests/logo.png" alt="Spieron" />
+  <main id="main-content" aria-label="Spieron — Enterprise Big Data Professional Services">
+
+    <img class="logo" src="assests/logo.png" alt="Spieron logo" />
 
     <h1>Big data services,<br /><em>expertly</em> delivered.</h1>
 
@@ -242,18 +273,20 @@
       and scale their data infrastructure end to end.
     </p>
 
-    <div class="cta">
-      <a href="mailto:office@spieron.com" class="btn btn-solid">
+    <div class="cta" role="group" aria-label="Contact options">
+      <a href="mailto:office@spieron.com" class="btn btn-solid"
+         aria-label="Contact Spieron by email">
         Get in touch &nbsp;→
       </a>
-      <a href="mailto:office@spieron.com" class="btn btn-ghost">
+      <a href="mailto:office@spieron.com" class="btn btn-ghost"
+         aria-label="Send email to office@spieron.com">
         office@spieron.com
       </a>
     </div>
 
   </main>
 
-  <footer>&copy; 2026 Spieron &nbsp;&middot;&nbsp; All rights reserved</footer>
+  <footer role="contentinfo">&copy; 2026 Spieron &nbsp;&middot;&nbsp; All rights reserved</footer>
 
   <script>
     const canvas = document.getElementById('net');
