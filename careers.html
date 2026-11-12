@@ -333,19 +333,28 @@
 
     .role-adv { grid-column: 1 / -1; }
 
-    .role-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+    .adv-lead { font-size: 0.9rem; line-height: 1.7; color: var(--t2); margin-bottom: 1.4rem; }
+
+    .adv-groups {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem 2.4rem;
     }
 
-    .role-tags span {
-      font-size: 0.74rem;
-      letter-spacing: 0.04em;
-      color: var(--t2);
-      padding: 0.3rem 0.8rem;
-      border: 1px solid var(--line2);
-      border-radius: 100px;
+    .adv-group h4 {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--t1);
+      margin-bottom: 0.8rem;
+    }
+
+    .adv-note {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-left: 0.4rem;
     }
 
     .role-apply { grid-column: 1 / -1; }
@@ -384,8 +393,8 @@
 
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem 3.5rem;
     }
 
     .why-grid h3 {
@@ -459,6 +468,7 @@
       .role summary { grid-template-columns: 2.4rem 1fr auto; gap: 0.4rem 1.2rem; }
       .role-body { grid-template-columns: 1fr; padding-left: calc(2.4rem + 1.2rem + 0.6rem); }
       .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .adv-groups { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -503,7 +513,8 @@
       <p class="lead">
         As our Big Data practice grows, we are looking for infrastructure and technology people
         who love engineering challenges, enjoy solving hard problems, and want to work across a
-        wide range of systems and technologies.
+        wide range of systems and technologies. Our engineers work on-site at our customers,
+        embedded in their teams, as Spieron&rsquo;s engineer in the room.
       </p>
     </header>
 
@@ -523,45 +534,74 @@
             <span class="role-toggle" aria-hidden="true"></span>
             <span class="role-meta">
               <span>Full-time</span>
+              <span>On customer site</span>
               <span>Cloudera platform</span>
             </span>
           </summary>
           <div class="role-body">
             <p class="role-summary">
-              You will build, deploy and manage batch and streaming data pipelines on the Cloudera
-              platform, and own the reliability of data as it flows from source systems into the
-              lakehouse.
+              You will work on-site at our customers, inside their data team, building and running the batch and streaming pipelines that move data from their source systems into the lakehouse. You own those pipelines end-to-end: from the first conversation about a new source, to the day the customer&rsquo;s operations team takes them over.
             </p>
             <div>
-              <h3>Responsibilities</h3>
+              <h3>Day to day</h3>
               <ul>
-                <li>Build, develop and optimize data pipelines in Apache Spark, Apache Flink and Apache Iceberg environments.</li>
-                <li>Own data ingestion and streaming with Apache NiFi (Cloudera Data Flow) and Apache Kafka, ensuring data-flow reliability.</li>
-                <li>Run analytics on streaming data with continuous SQL in SQL Stream Builder.</li>
-                <li>Manage Iceberg lakehouse tables: schema and partition evolution, snapshot rollback, compaction and ACID across streaming and batch.</li>
-                <li>Tune and monitor Spark applications, identifying and resolving performance issues.</li>
+                <li>Take a new source system (database, files, message queue, API) and get its data into the lakehouse end-to-end: ingestion, validation, cleansing, enrichment and loading into Iceberg tables people can trust.</li>
+                <li>Build and maintain streaming flows (NiFi, Kafka, Flink / SQL Stream Builder) and batch jobs (Spark), and decide which one each use case needs.</li>
+                <li>Make sure nothing gets lost silently: bad records are rejected with a reason, can be inspected and replayed, and late or duplicate data is handled correctly.</li>
+                <li>Start the morning by checking what failed or ran late overnight. Find the root cause in logs, the Spark UI or the NiFi bulletins, fix it, and make sure it doesn&rsquo;t happen again.</li>
+                <li>Tune slow or expensive jobs (partitioning, file sizes, joins, resources) and keep Iceberg tables healthy (schema and partition evolution, compaction, snapshot expiry, rollback when needed).</li>
+                <li>Work directly with the customer&rsquo;s analysts, DBAs and platform admins. Clarify requirements, explain trade-offs, and push back when something won&rsquo;t hold up in production.</li>
+                <li>Handle tickets and escalations for the pipelines you own, including opening and driving cases with vendor support.</li>
+                <li>Write runbooks and hand-over docs, and train the customer&rsquo;s team so they can run what you built.</li>
               </ul>
             </div>
             <div>
               <h3>Requirements</h3>
               <ul>
-                <li>Hands-on experience developing Apache Spark applications.</li>
-                <li>Experience with stream processing in Apache Flink.</li>
-                <li>Experience building ingestion flows with Apache NiFi and working with Apache Kafka.</li>
-                <li>Familiarity with Apache Iceberg and with query engines such as Hive and Trino.</li>
-                <li>Strong SQL and Python skills.</li>
-                <li>Comfortable working in Linux environments.</li>
-                <li>Familiarity with Kubernetes.</li>
+                <li>Hands-on experience developing Apache Spark applications (PySpark or Scala).</li>
+                <li>Experience building ingestion and streaming pipelines with Apache Kafka and a flow / streaming tool (Apache NiFi, Apache Flink or similar).</li>
+                <li>Working knowledge of Apache Iceberg tables and an Iceberg catalog.</li>
+                <li>Strong SQL and Python.</li>
+                <li>SQL query engines: Trino and / or Impala.</li>
+                <li>Comfortable working in Linux: shell, logs, processes, permissions, networking basics.</li>
+                <li>Familiarity with Kubernetes and containers.</li>
+                <li>Comfortable working on-site with customers, with clear written and spoken communication.</li>
               </ul>
             </div>
             <div class="role-adv">
               <h3>Advantages</h3>
-              <div class="role-tags">
-              <span>Cloudera Data Engineer certification</span>
-              <span>Cloudera Data Lakehouse Engineer certification</span>
-              <span>Cloudera Data Operator certification</span>
-              <span>Trino</span>
-              <span>Apache Ozone</span>
+              <p class="adv-lead">Come as you are. None of these are required; each one is a plus.</p>
+              <div class="adv-groups">
+                <div class="adv-group">
+                  <h4>Cloudera background <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Hands-on Cloudera (CDP): CDF / NiFi, Streams Messaging, CDE, CDW</li>
+                    <li>Cloudera Data Engineer certification</li>
+                    <li>Cloudera Data Lakehouse Engineer certification</li>
+                    <li>Cloudera Data Operator certification</li>
+                    <li>Apache Ozone</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Linux / DevOps / GitOps <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Linux administration</li>
+                    <li>Git and CI/CD (GitLab CI / GitHub Actions / Jenkins)</li>
+                    <li>GitOps (Argo CD / Flux), Docker, Helm</li>
+                    <li>Infrastructure as code (Ansible / Terraform)</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Also great</h4>
+                  <ul>
+                    <li>Orchestration (Airflow or similar), dbt</li>
+                    <li>CDC (Debezium, GoldenGate or similar)</li>
+                    <li>Relational databases (PostgreSQL / Oracle / SQL Server)</li>
+                    <li>Observability (Prometheus / Grafana / ELK)</li>
+                    <li>Cloud data services (AWS / Azure / GCP)</li>
+                    <li>Consulting, professional services or support experience</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="role-apply">
@@ -578,48 +618,70 @@
             <span class="role-toggle" aria-hidden="true"></span>
             <span class="role-meta">
               <span>Full-time</span>
+              <span>On customer site</span>
               <span>Cloudera on premises</span>
             </span>
           </summary>
           <div class="role-body">
             <p class="role-summary">
-              You will install, operate and maintain Cloudera clusters on premises, keeping them
-              secure, available and performant. From cluster administration and security to capacity,
-              monitoring, tuning and upgrades, you will own the health of the platform.
+              You will work on-site at our customers, as the platform owner of their on-premises Cloudera clusters. You keep the platform secure, available and performant, and you are the person the customer calls when something is slow, down or about to change.
             </p>
             <div>
-              <h3>Responsibilities</h3>
+              <h3>Day to day</h3>
               <ul>
-                <li>Administer Cloudera clusters with Cloudera Manager: install, configure, operate and troubleshoot services.</li>
-                <li>Secure the platform: Kerberos, Auto-TLS, directory services (LDAP / Active Directory / FreeIPA), Apache Ranger policies, Apache Atlas, Knox single sign-on and data-at-rest encryption.</li>
-                <li>Plan and manage capacity: adding and decommissioning nodes, YARN queues and resource management.</li>
-                <li>Monitor the environment with Cloudera Manager and Cloudera Observability, configure alerting, and handle incidents.</li>
-                <li>Tune platform performance and work through logs and diagnostics to resolve problems.</li>
-                <li>Prepare for and carry out upgrades, including backing up Cloudera Manager and its database.</li>
+                <li>Start the day with health checks: service health, disks, HDFS / Ozone capacity, failed jobs, certificate expiry, alerts from overnight.</li>
+                <li>Handle incidents: find what broke from logs and metrics, restore service, keep the customer updated, and write the root-cause summary afterwards.</li>
+                <li>Onboard users, teams and new use cases: Kerberos principals, directory groups, Ranger policies, YARN queues, quotas, service accounts.</li>
+                <li>Open and drive cases with Cloudera support: collect diagnostic bundles, reproduce the issue, push it to a resolution, and apply the fix.</li>
+                <li>Plan and run changes with the customer: patches, upgrades, adding or decommissioning nodes, configuration changes. That includes backups, rollback plans and agreed maintenance windows.</li>
+                <li>Keep the platform secure in practice: TLS certificates, Kerberos, Ranger, Atlas, Knox SSO and encryption at rest. Answer the customer&rsquo;s security and audit questions.</li>
+                <li>Plan capacity and tune performance together with the data teams using the cluster.</li>
+                <li>Automate anything you do twice (Bash / Python / Ansible, the Cloudera Manager API) and keep runbooks and documentation up to date.</li>
               </ul>
             </div>
             <div>
               <h3>Requirements</h3>
               <ul>
-                <li>Linux system administration experience; strong Linux proficiency is a must.</li>
-                <li>Knowledge of directory services, TLS and Kerberos.</li>
-                <li>Scripting in Python and Bash.</li>
-                <li>Hands-on experience with Kubernetes.</li>
+                <li>Strong Linux system administration is a must (RHEL / Rocky family, systemd, storage, networking, troubleshooting).</li>
+                <li>Working knowledge of directory services (LDAP / Active Directory / FreeIPA), TLS / PKI and Kerberos.</li>
+                <li>Scripting in Bash and Python.</li>
+                <li>Hands-on experience with Kubernetes and containers.</li>
                 <li>Basic SQL.</li>
+                <li>Comfortable working on-site with customers, handling incidents calmly and communicating clearly under pressure.</li>
               </ul>
             </div>
             <div class="role-adv">
               <h3>Advantages</h3>
-              <div class="role-tags">
-              <span>Cloudera Administrator on premises certification</span>
-              <span>Hands-on Cloudera Manager experience</span>
-              <span>Cloudera Manager REST API</span>
-              <span>High availability</span>
-              <span>Rolling upgrades</span>
-              <span>Cloudera on cloud administration</span>
-              <span>AWS / Azure</span>
-              <span>Ansible</span>
-              <span>OpenShift</span>
+              <p class="adv-lead">Come as you are. None of these are required; each one is a plus.</p>
+              <div class="adv-groups">
+                <div class="adv-group">
+                  <h4>Cloudera background <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Hands-on Cloudera Manager administration, including the REST API</li>
+                    <li>Cloudera Administrator on premises certification</li>
+                    <li>High availability and rolling upgrades</li>
+                    <li>Cloudera on cloud administration</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Linux / DevOps / GitOps <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Red Hat certification (RHCSA / RHCE)</li>
+                    <li>Infrastructure as code and configuration management (Ansible / Terraform)</li>
+                    <li>Git-based change management and GitOps (Argo CD / Flux)</li>
+                    <li>OpenShift / Kubernetes administration</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Also great</h4>
+                  <ul>
+                    <li>Monitoring and logging (Prometheus / Grafana / ELK / Zabbix)</li>
+                    <li>Storage and networking (SAN / NAS, load balancers, DNS, firewalls)</li>
+                    <li>Other Hadoop distributions or upstream Apache stacks (HDFS, Kafka, YARN)</li>
+                    <li>AWS / Azure</li>
+                    <li>Support, NOC or operations background</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="role-apply">
@@ -636,42 +698,66 @@
             <span class="role-toggle" aria-hidden="true"></span>
             <span class="role-meta">
               <span>Full-time</span>
+              <span>On customer site</span>
               <span>Cloudera platform</span>
             </span>
           </summary>
           <div class="role-body">
             <p class="role-summary">
-              You will design the systems and data infrastructure that let organizations extract,
-              organize and securely access their data, from the edge through streaming and analytics
-              to AI. You will work across teams to choose the right technology for each need.
+              You will work on-site at our customers, as the technical lead who designs their data platform: from the edge through streaming and analytics to AI. You turn business needs into an architecture the customer can build, run and afford, and you stay close enough to the implementation to make sure it actually works.
             </p>
             <div>
-              <h3>Responsibilities</h3>
+              <h3>Day to day</h3>
               <ul>
-                <li>Design data platform architectures on Cloudera covering streaming, data engineering, data warehousing, operational data and AI.</li>
-                <li>Identify internal and external data sources and work across departments to choose the optimal technology and data solution.</li>
-                <li>Apply modern data architecture approaches such as data lakehouse, data mesh and data fabric.</li>
-                <li>Select the right components: Spark, Flink and Kafka for streaming; HDFS and Ozone for storage; Hive and Impala for warehousing; HBase, Phoenix, Kudu and Solr for operational data.</li>
-                <li>Design security architecture with Kerberos, TLS, Apache Ranger, Apache Atlas and Knox.</li>
-                <li>Plan cluster sizing, scalability, fault tolerance and disaster recovery, and choose between on-premises and cloud deployment, including containers and Kubernetes.</li>
+                <li>Run discovery with the customer: map the data sources, the consumers, the volumes, latency needs, security constraints and the existing landscape.</li>
+                <li>Turn that into a target architecture and a roadmap. Write the HLD / LLD, sizing, security design and disaster-recovery plan, and get them approved.</li>
+                <li>Choose the right tool for each need and explain why: streaming (Kafka, Flink, NiFi), processing (Spark), storage (HDFS / Ozone / object storage), lakehouse SQL (Impala / Trino over Iceberg) and operational data (HBase / Phoenix / Kudu / Solr). Be honest when another option is a better fit.</li>
+                <li>Build proofs of concept hands-on, to de-risk the design before the customer commits.</li>
+                <li>Guide and review the implementation team (Spieron&rsquo;s and the customer&rsquo;s), and catch design drift early.</li>
+                <li>Present to IT, security and business stakeholders. Run architecture and design reviews, and answer the hard questions.</li>
+                <li>Support pre-sales: scoping, effort estimates, technical parts of proposals and RFP answers.</li>
               </ul>
             </div>
             <div>
               <h3>Requirements</h3>
               <ul>
                 <li>Experience as an architect, development team lead or senior data engineer on big data or streaming applications.</li>
-                <li>Working knowledge of HDFS, Spark, Kafka, Hive / Impala, data formats and relational databases.</li>
-                <li>Understanding of distributed systems: batch vs. real-time processing, fault tolerance and scalability.</li>
-                <li>Experience with Kubernetes and containerized platforms, and with Linux environments.</li>
-                <li>Ability to collaborate across departments and present architecture to technical and business stakeholders.</li>
+                <li>Working knowledge of Spark, Kafka, distributed storage (HDFS / Ozone / object storage), data formats (Parquet / ORC / Avro) and relational databases.</li>
+                <li>SQL query engines (Impala / Trino), and Iceberg tables and catalogs.</li>
+                <li>Understanding of distributed systems: batch vs. real-time, fault tolerance, scalability, consistency.</li>
+                <li>Experience with Kubernetes and containerized platforms, and with Linux.</li>
+                <li>Ability to work with many teams and to present architecture to both technical and business stakeholders.</li>
               </ul>
             </div>
             <div class="role-adv">
               <h3>Advantages</h3>
-              <div class="role-tags">
-              <span>Cloudera Generalist certification</span>
-              <span>Trino</span>
-              <span>Agentic AI with Cloudera AI</span>
+              <p class="adv-lead">Come as you are. None of these are required; each one is a plus.</p>
+              <div class="adv-groups">
+                <div class="adv-group">
+                  <h4>Cloudera background <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Hands-on Cloudera (CDP) architecture or implementation</li>
+                    <li>Cloudera Generalist certification</li>
+                    <li>Agentic AI with Cloudera AI</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Linux / DevOps / GitOps <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Hands-on Linux administration background</li>
+                    <li>Infrastructure as code and GitOps (Terraform / Ansible / Argo CD)</li>
+                    <li>CI/CD for data platforms</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Also great</h4>
+                  <ul>
+                    <li>Other data platforms (Databricks / Snowflake / AWS / Azure / GCP data services)</li>
+                    <li>Data governance and catalogs (lineage, data quality, access control)</li>
+                    <li>Pre-sales, consulting or RFP experience</li>
+                    <li>Enterprise security and network architecture</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="role-apply">
@@ -688,44 +774,68 @@
             <span class="role-toggle" aria-hidden="true"></span>
             <span class="role-meta">
               <span>Full-time</span>
+              <span>On customer site</span>
               <span>Cloudera AI</span>
             </span>
           </summary>
           <div class="role-body">
             <p class="role-summary">
-              You will turn enterprise data into production machine-learning models on Cloudera AI,
-              owning the lifecycle from data preparation and training through deployment and
-              monitoring, and guiding customers on MLOps.
+              You will work on-site at our customers, next to their data scientists and platform teams, taking machine-learning and GenAI work from notebooks to production on Cloudera AI. You own the path from data preparation and training through deployment and monitoring, and you teach the customer&rsquo;s team to run it themselves.
             </p>
             <div>
-              <h3>Responsibilities</h3>
+              <h3>Day to day</h3>
               <ul>
-                <li>Load, explore, cleanse, join and analyze data to prepare it for modeling.</li>
-                <li>Train, evaluate and tune machine-learning models.</li>
-                <li>Deploy models on Cloudera AI, including as REST APIs, and manage them through the model registry.</li>
-                <li>Monitor deployed models for performance and data drift.</li>
-                <li>Track experiments with MLflow and build MLOps workflows with Git and CI/CD.</li>
-                <li>Provide MLOps guidance to customer teams.</li>
+                <li>Sit with the customer&rsquo;s data scientists. Understand the use case and the data, and turn experimental notebooks into reliable, repeatable training pipelines.</li>
+                <li>Prepare data at scale: explore, cleanse, join and build features with PySpark / SQL, together with the data engineering team.</li>
+                <li>Train, evaluate and tune models, and be honest about whether a model is good enough for the business problem.</li>
+                <li>Deploy models as REST endpoints or batch scoring jobs. Manage versions in a model registry, and set up promotion, rollback and access.</li>
+                <li>Monitor models in production for performance and data drift, and investigate when predictions go wrong.</li>
+                <li>Build the MLOps plumbing: experiment tracking (MLflow), Git-based CI/CD for models, environments and containers.</li>
+                <li>Run GenAI / LLM pilots (RAG, fine-tuning, agents) on customer data, within the customer&rsquo;s security constraints.</li>
+                <li>Coach customer teams on MLOps practice and write the docs they need.</li>
               </ul>
             </div>
             <div>
               <h3>Requirements</h3>
               <ul>
-                <li>Hands-on experience training, evaluating and deploying machine-learning models.</li>
+                <li>Hands-on experience training, evaluating and deploying machine-learning models to production.</li>
                 <li>Strong Python, including PySpark.</li>
                 <li>Understanding of MLOps practices: experiment tracking, model registry, deployment and monitoring.</li>
                 <li>Experience with Git, CI/CD, Docker and Kubernetes.</li>
                 <li>Comfortable working in Linux environments.</li>
+                <li>Comfortable working on-site with customers and explaining models to non-specialists.</li>
               </ul>
             </div>
             <div class="role-adv">
               <h3>Advantages</h3>
-              <div class="role-tags">
-              <span>Cloudera Machine Learning Engineer certification</span>
-              <span>Cloudera Generative AI Engineer certification</span>
-              <span>MLflow</span>
-              <span>LLM fine-tuning and hosting</span>
-              <span>Agentic AI with Agent Studio</span>
+              <p class="adv-lead">Come as you are. None of these are required; each one is a plus.</p>
+              <div class="adv-groups">
+                <div class="adv-group">
+                  <h4>Cloudera background <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Hands-on Cloudera AI (CML), including Agent Studio</li>
+                    <li>Cloudera Machine Learning Engineer certification</li>
+                    <li>Cloudera Generative AI Engineer certification</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Linux / DevOps / GitOps <span class="adv-note">Bonus</span></h4>
+                  <ul>
+                    <li>Linux administration, GPU drivers / CUDA environments</li>
+                    <li>GitOps (Argo CD / Flux), Helm, infrastructure as code</li>
+                    <li>CI/CD pipeline design (GitLab CI / GitHub Actions / Jenkins)</li>
+                  </ul>
+                </div>
+                <div class="adv-group">
+                  <h4>Also great</h4>
+                  <ul>
+                    <li>MLflow, Kubeflow, KServe / Seldon, Ray</li>
+                    <li>LLM hosting and serving (vLLM / TGI / Triton), fine-tuning</li>
+                    <li>Vector databases and RAG frameworks</li>
+                    <li>Feature stores</li>
+                    <li>Cloud ML services (SageMaker / Azure ML / Vertex AI)</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="role-apply">
@@ -755,6 +865,10 @@
           <div class="reveal">
             <h3>Official Cloudera partner</h3>
             <p>Hands-on work across the Cloudera platform, in production, every day.</p>
+          </div>
+          <div class="reveal">
+            <h3>On site, never alone</h3>
+            <p>You work at the customer&rsquo;s site on their production platform, backed by Spieron&rsquo;s senior team.</p>
           </div>
         </div>
       </div>
